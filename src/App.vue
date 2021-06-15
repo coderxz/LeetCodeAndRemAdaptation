@@ -79,14 +79,58 @@ export default {
 //     k--
 //     console.log(k,l);
 
-//     return k && sumNums1(k) 
+//     return k && sumNums1(k)
+
+
+
     
 //   };
 //   sumNums1(n)
 //   return l
 // }
 //   console.log(sumNums(6));
-}
+
+// 给你一个数组candies和一个整数extraCandies，其中candies[i]代表第 i 个孩子拥有的糖果数目。
+// 对每一个孩子，检查是否存在一种方案，将额外的extraCandies个糖果分配给孩子们之后，此孩子有 最多的糖果。注意，允许有多个孩子同时拥有 最多的糖果数目。
+// 输入：candies = [2,3,5,1,3], extraCandies = 3
+// 输出：[true,true,true,false,true]
+// 解释：
+// 孩子 1 有 2 个糖果，如果他得到所有额外的糖果（3个），那么他总共有 5 个糖果，他将成为拥有最多糖果的孩子。
+// 孩子 2 有 3 个糖果，如果他得到至少 2 个额外糖果，那么他将成为拥有最多糖果的孩子。
+// 孩子 3 有 5 个糖果，他已经是拥有最多糖果的孩子。
+// 孩子 4 有 1 个糖果，即使他得到所有额外的糖果，他也只有 4 个糖果，无法成为拥有糖果最多的孩子。
+// 孩子 5 有 3 个糖果，如果他得到至少 2 个额外糖果，那么他将成为拥有最多糖果的孩子。
+//     var kidsWithCandies = function(candies, extraCandies) {
+//       let maxNum = Math.max(...candies)
+//       let target = []
+//       let i = 0
+//       while (i<candies.length){
+//         candies[i]+extraCandies>=maxNum ? target[i] = true : target[i] = false
+//         i++
+//       }
+//       return target
+//     };
+//     console.log(kidsWithCandies([2, 3, 5, 1, 3], 3));
+// 小A 和 小B 在玩猜数字。小B 每次从 1, 2, 3 中随机选择一个，小A 每次也从 1, 2, 3 中选择一个猜。他们一共进行三次这个游戏，请返回 小A 猜对了几次？
+// 输入的guess数组为 小A 每次的猜测，answer数组为 小B 每次的选择。guess和answer的长度都等于3。
+// 输入：guess = [1,2,3], answer = [1,2,3]
+// 输出：3
+// 解释：小A 每次都猜对了。
+//     var game = function(guess, answer) {
+//       let i = 0
+//       let targrt = 0
+//       while(i<guess.length){
+//         if(guess[i]===answer[i]){
+//           targrt++
+//         }
+//         i++
+//       }
+//       return targrt
+//     };
+//     console.log(game([1, 2, 3], [1, 2, 3]));
+
+
+  }
 }
 </script>
 
