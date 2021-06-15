@@ -129,6 +129,41 @@ export default {
 //     };
 //     console.log(game([1, 2, 3], [1, 2, 3]));
 
+// 夏日炎炎，小男孩 Tony 想买一些雪糕消消暑。
+// 商店中新到 n 支雪糕，用长度为 n 的数组 costs 表示雪糕的定价，其中 costs[i] 表示第 i 支雪糕的现金价格。Tony 一共有 coins 现金可以用于消费，他想要买尽可能多的雪糕。
+// 给你价格数组 costs 和现金量 coins ，请你计算并返回 Tony 用 coins 现金能够买到的雪糕的 最大数量 。
+// 注意：Tony 可以按任意顺序购买雪糕。
+// 输入：costs = [1,3,2,4,1], coins = 7
+// 输出：4
+// 解释：Tony 可以买下标为 0、1、2、4 的雪糕，总价为 1 + 3 + 2 + 1 = 7
+//     var maxIceCream = function(costs, coins) {
+//       // eslint-disable-next-line no-debugger
+//       // debugger
+//       let target = 0
+//       let count = 0
+//       costs.sort((a,b)=>{return a - b})
+//       for (let i = 0; i < costs.length; i++){
+//         count+=costs[i]
+//         if(count>coins){
+//           break
+//         }
+//         target++
+//       }
+//       return target
+//     };
+//     console.log(maxIceCream([1, 3, 2, 4, 1], 7));
+
+
+// 给你一个数组 items ，其中items[i] = [typei, colori, namei] ，描述第 i 件物品的类型、颜色以及名称。
+// 另给你一条由两个字符串ruleKey 和 ruleValue 表示的检索规则。
+// 如果第 i 件物品能满足下述条件之一，则认为该物品与给定的检索规则 匹配 ：
+// ruleKey == "type" 且 ruleValue == typei 。
+// ruleKey == "color" 且 ruleValue == colori 。
+// ruleKey == "name" 且 ruleValue == namei 。
+// 统计并返回 匹配检索规则的物品数量 。
+// 输入：items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], ruleKey = "color", ruleValue = "silver"
+// 输出：1
+// 解释：只有一件物品匹配检索规则，这件物品是 ["computer","silver","lenovo"] 。
 
   }
 }
