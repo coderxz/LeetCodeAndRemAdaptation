@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app{
+      position: relative;
+      width: 200px;
+      height: 100px;
+      background-color: pink;
+    }
+    #app .content{
+        width: 200px;
+
+        word-break: break-all;
+
+        text-overflow: ellipsis;
+
+        display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+
+        -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+
+        -webkit-line-clamp: 2; /** 显示的行数 **/
+
+        overflow: hidden;  /** 隐藏超出的内容 **/
+    }
+    #app img {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="content">
+      123141234124124142123412312312312314123412412414212341231231231231412341241241421234123123123
+    </div>
+    <p>描述文字</p>
+    <img src="./src/assets/logo.png" alt="">
+  </div>
+</body>
+</html>
