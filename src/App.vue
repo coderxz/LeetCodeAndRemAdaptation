@@ -7,9 +7,8 @@
 
 export default {
   name: 'App',
-  components: {
-  },
-  mounted(){
+  components: {},
+  mounted() {
 // 符合下列属性的数组 arr 称为 山脉数组 ：
 // arr.length >= 3
 // 存在 i（0 <i< arr.length - 1）使得：
@@ -74,7 +73,7 @@ export default {
 //   let l = 0
 //   console.log(n);
 //   var sumNums1 = function(k) {
-    
+
 //     l += k
 //     k--
 //     console.log(k,l);
@@ -82,8 +81,6 @@ export default {
 //     return k && sumNums1(k)
 
 
-
-    
 //   };
 //   sumNums1(n)
 //   return l
@@ -129,6 +126,8 @@ export default {
 //     };
 //     console.log(game([1, 2, 3], [1, 2, 3]));
 
+
+
 // 夏日炎炎，小男孩 Tony 想买一些雪糕消消暑。
 // 商店中新到 n 支雪糕，用长度为 n 的数组 costs 表示雪糕的定价，其中 costs[i] 表示第 i 支雪糕的现金价格。Tony 一共有 coins 现金可以用于消费，他想要买尽可能多的雪糕。
 // 给你价格数组 costs 和现金量 coins ，请你计算并返回 Tony 用 coins 现金能够买到的雪糕的 最大数量 。
@@ -154,47 +153,79 @@ export default {
 //     console.log(maxIceCream([1, 3, 2, 4, 1], 7));
 
 
-// 给你一个数组 items ，其中items[i] = [typei, colori, namei] ，描述第 i 件物品的类型、颜色以及名称。
-// 另给你一条由两个字符串ruleKey 和 ruleValue 表示的检索规则。
-// 如果第 i 件物品能满足下述条件之一，则认为该物品与给定的检索规则 匹配 ：
-// ruleKey == "type" 且 ruleValue == typei 。
-// ruleKey == "color" 且 ruleValue == colori 。
-// ruleKey == "name" 且 ruleValue == namei 。
-// 统计并返回 匹配检索规则的物品数量 。
-// 输入：items = [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]], ruleKey = "color", ruleValue = "silver"
-// 输出：1
-// 解释：只有一件物品匹配检索规则，这件物品是 ["computer","silver","lenovo"] 。
+
+// 亚历克斯和李用几堆石子在做游戏。偶数堆石子排成一行，每堆都有正整数颗石子piles[i]。
+// 游戏以谁手中的石子最多来决出胜负。石子的总数是奇数，所以没有平局。
+// 亚历克斯和李轮流进行，亚历克斯先开始。 每回合，玩家从行的开始或结束处取走整堆石头。 这种情况一直持续到没有更多的石子堆为止，此时手中石子最多的玩家获胜。
+// 假设亚历克斯和李都发挥出最佳水平，当亚历克斯赢得比赛时返回true，当李赢得比赛时返回false。
+// 输入：[5,3,4,5]
+// 输出：true
+// 解释：
+// 亚历克斯先开始，只能拿前 5 颗或后 5 颗石子 。
+// 假设他取了前 5 颗，这一行就变成了 [3,4,5] 。
+// 如果李拿走前 3 颗，那么剩下的是 [4,5]，亚历克斯拿走后 5 颗赢得 10 分。
+// 如果李拿走后 5 颗，那么剩下的是 [3,4]，亚历克斯拿走后 4 颗赢得 9 分。
+// 这表明，取前 5 颗石子对亚历克斯来说是一个胜利的举动，所以我们返回 true 。
+//     var stoneGame = function (piles) {
+//       let y = 0
+//       let l = 0
+//       let flag = true
+//
+//       for (let i = 0; i < piles.length; i++){
+//         if(flag){
+//           y += piles.splice(piles.indexOf(Math.max.apply(null, piles)),1)*1
+//           console.log(piles)
+//           flag = false
+//         }
+//         if(!flag){
+//           l += piles.splice(piles.indexOf(Math.max.apply(null, piles)),1)*1
+//           console.log(piles)
+//           flag = true
+//         }
+//       }
+//       if (piles.length===2){
+//         y+=Math.max.apply(null, piles)
+//         l+=Math.min.apply(null, piles)
+//       }
+//       console.log(y,l)
+//       return (y > l)
+//     };
+//     console.log(stoneGame([6,9,10,5,9,10]));
+
 
   }
 }
 </script>
 
 <style>
-html,body{
+html, body {
   padding: 0;
   margin: 0;
 }
-#app{
+
+#app {
   position: relative;
   width: 1920px;
   height: 100px;
   background-color: pink;
 }
-#app .content{
-    width: 200px;
 
-    word-break: break-all;
+#app .content {
+  width: 200px;
 
-    text-overflow: ellipsis;
+  word-break: break-all;
 
-    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  text-overflow: ellipsis;
 
-    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
 
-    -webkit-line-clamp: 2; /** 显示的行数 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
 
-    overflow: hidden;  /** 隐藏超出的内容 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+
+  overflow: hidden; /** 隐藏超出的内容 **/
 }
+
 #app img {
   position: absolute;
   right: 5px;
