@@ -359,10 +359,19 @@ export default {
 // 改变第三位数字可以得到 9699 。
 // 改变第四位数字可以得到 9666 。
 // 其中最大的数字是 9969 。
-    var maximum69Number  = function(num) {
-
-    };
-    maximum69Number(9669)
+//     var maximum69Number  = function(num) {
+//       let i = 0
+//       num = num.toString().split('')
+//       while(i<num.length){
+//         if(num[i]*1 !== 9){
+//           num.splice(i,1,'9')
+//           break
+//         }
+//         i++
+//       }
+//       return num.join('')*1
+//     };
+//     console.log(maximum69Number(9669));
   }
 }
 </script>
