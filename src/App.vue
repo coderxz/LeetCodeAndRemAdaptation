@@ -203,7 +203,6 @@ export default {
 //       let i = 0
 //       let obj = {}
 //       let target = 0
-//       debugger
 //       while (i<nums.length){
 //         if(obj[nums[i]]){
 //           target+=obj[nums[i]]
@@ -218,6 +217,118 @@ export default {
 //     };
 //     console.log(numIdenticalPairs([1,2,3,1,1,3]));
 
+
+// 桌上有 n 堆力扣币，每堆的数量保存在数组 coins 中。我们每次可以选择任意一堆，拿走其中的一枚或者两枚，求拿完所有力扣币的最少次数。
+// 示例 1：
+// 输入：[4,2,1]
+// 输出：4
+// 解释：第一堆力扣币最少需要拿 2 次，第二堆最少需要拿 1 次，第三堆最少需要拿 1 次，总共 4 次即可拿完。
+//     var minCount = function(coins) {
+//       let target = 0
+//       coins.map(item=>{
+//         if ((item/2).toString().indexOf('.')!==-1){
+//           target += Math.ceil(item/2)
+//         }else{
+//           target += item/2
+//         }
+//       })
+//       return target
+//     };
+//     console.log(minCount([2, 3, 10]));
+
+
+// 给你一个整数 n，请你帮忙计算并返回该整数「各位数字之积」与「各位数字之和」的差。
+// 示例 1：
+// 输入：n = 234
+// 输出：15
+// 解释：
+// 各位数之积 = 2 * 3 * 4 = 24
+// 各位数之和 = 2 + 3 + 4 = 9
+// 结果 = 24 - 9 = 15
+
+    // var subtractProductAndSum = function(n) {
+    //   let sum = 0,pro = 1,i = 0
+    //   n = n.toString()
+    //   while(i<n.length){
+    //     sum += n[i]*1
+    //     pro *= n[i]*1
+    //     i++
+    //   }
+    //   return pro - sum
+    // };
+    // console.log(subtractProductAndSum(234));
+
+//不会
+// n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
+// 给你一个整数 n ，返回所有不同的 n 皇后问题 的解决方案。
+// 每一种解法包含一个不同的 n 皇后问题 的棋子放置方案，该方案中 'Q' 和 '.' 分别代表了皇后和空位。
+// 输入：n = 4
+// 输出：[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+// 解释：如上图所示，4 皇后问题存在两个不同的解法。
+//     var solveNQueens = function(n) {
+//
+//       let arr1 = [1,1,1,1]
+//       let arr2 = [1,1,1,1]
+//       let arr3 = [1,1,1,1]
+//       let arr4 = [1,1,1,1]
+//       arr1.splice(0,1,'Q')
+//       if(arr1[0] !== '.' && arr1[0]==='Q'){
+//         arr1 = arr1.map((item,index)=>{
+//           if(index!==0){
+//              return  item = '.'
+//           }
+//           return item
+//         })
+//         arr2[0] = '.'
+//         arr2[1] = '.'
+//         arr3[0] = '.'
+//         arr3[2] = '.'
+//         arr4[0] = '.'
+//         arr4[3] = '.'
+//       }else if(arr1[1] !== '.' && arr1[1]==='Q'){
+//
+//       }
+//       console.log(arr1)
+//       console.log(arr2)
+//       console.log(arr3)
+//       console.log(arr4)
+//     };
+//     solveNQueens(4)
+
+// 给你两个长度相同的整数数组target和arr。
+// 每一步中，你可以选择arr的任意 非空子数组并将它翻转。你可以执行此过程任意次。
+// 如果你能让 arr变得与 target相同，返回 True；否则，返回 False 。
+// 示例 1：
+//
+// 输入：target = [1,2,3,4], arr = [2,4,1,3]
+// 输出：true
+// 解释：你可以按照如下步骤使 arr 变成 target：
+// 1- 翻转子数组 [2,4,1] ，arr 变成 [1,4,2,3]
+// 2- 翻转子数组 [4,2] ，arr 变成 [1,2,4,3]
+// 3- 翻转子数组 [4,3] ，arr 变成 [1,2,3,4]
+// 上述方法并不是唯一的，还存在多种将 arr 变成 target 的方法。
+
+    // var canBeEqual = function(target, arr) {
+    //   let i = 0
+    //   let flag = true
+    //   target = target.sort((a,b)=>{
+    //     return a-b
+    //   })
+    //   arr = arr.sort((a,b)=>{
+    //     return a-b
+    //   })
+    //   if (arr.length !== target.length){
+    //     flag = false
+    //   }
+    //   while(i<arr.length){
+    //     if (arr[i]!==target[i]){
+    //       flag =  false
+    //     }
+    //     i++
+    //   }
+    //   return flag
+    // };
+    // console.log(canBeEqual([1, 2, 3, 4], [2, 1, 3, 4]));
 
   }
 }
