@@ -372,6 +372,45 @@ export default {
 //       return num.join('')*1
 //     };
 //     console.log(maximum69Number(9669));
+
+//216
+// 找出所有相加之和为n 的k个数的组合。组合中只允许含有 1 -9 的正整数，并且每种组合中不存在重复的数字。
+//
+// 说明：
+//
+// 所有数字都是正整数。
+// 解集不能包含重复的组合。
+// 示例 1:
+//
+// 输入: k = 3, n = 7
+// 输出: [[1,2,4]]
+// 示例 2:
+//
+// 输入: k = 3, n = 9
+// 输出: [[1,2,6], [1,3,5], [2,3,4]]
+    var combinationSum3 = function(k, n) {
+      const res = [];
+      // 基于当前已选的comb数组(和为sum)，在数start到数9中继续选
+      const dfs = (start, comb, sum) => {
+        if (comb.length === k) {     // 选够k个数 结束递归
+          if (sum === n) {           // 组合中数之和等于n
+            res.push(comb.slice()); // 将它的拷贝加入解集
+          }
+          return;
+        }
+        for (let i = start; i <= 9; i++) { // 枚举出所有的选择（选项）
+          comb.push(i);                    // 作出一个选择i
+          dfs(i + 1, comb, sum + i);// 基于该选择i，往下递归
+          comb.pop();                      // 撤销这个选择
+        }
+      };
+
+      dfs(1, [], 0);  // 入口
+      return res;
+
+    };
+    console.log(combinationSum3(9, 45));
+
   }
 }
 </script>
