@@ -411,7 +411,7 @@ export default {
 //     };
 //     console.log(combinationSum3(3, 7));
 
-//     句子 是一个单词列表，列表中的单词之间用单个空格隔开，且不存在前导或尾随空格。每个单词仅由大小写英文字母组成（不含标点符号）。
+// 句子 是一个单词列表，列表中的单词之间用单个空格隔开，且不存在前导或尾随空格。每个单词仅由大小写英文字母组成（不含标点符号）。
 // 例如，"Hello World"、"HELLO" 和 "hello world hello world" 都是句子。
 // 给你一个句子 s 和一个整数 k ，请你将 s 截断 ，使截断后的句子仅含 前 k 个单词。返回 截断 s 后得到的句子。
 //     示例 1：
@@ -422,45 +422,68 @@ export default {
 // s 中的单词为 ["Hello", "how" "are", "you", "Contestant"]
 //     前 4 个单词为 ["Hello", "how", "are", "you"]
 //     因此，应当返回 "Hello how are you"
-    var truncateSentence = function(s, k) {
-      let target = ''
-      let num = 0
-      // let i = 0
-      // s.split(' ').map((item,index)=>{
-      //
-      //   if (index<k-1){
-      //     target+= item + ' '
-      //   }
-      //   if (index === k-1){
-      //     target+= item
-      //   }
-      // })
+//     var truncateSentence = function(s, k) {
+//       let target = ''
+//       let num = 0
+//       // let i = 0
+//       // s.split(' ').map((item,index)=>{
+//       //
+//       //   if (index<k-1){
+//       //     target+= item + ' '
+//       //   }
+//       //   if (index === k-1){
+//       //     target+= item
+//       //   }
+//       // })
+//
+//       // s = s.split(' ')
+//       // while(i< s.length){
+//       //     if (i<k-1){
+//       //       target+= s[i] + ' '
+//       //     }
+//       //     if (i === k-1){
+//       //       target+= s[i]
+//       //     }
+//       //     i++
+//       // }
+//       for (let i = 0; i < s.length; i++) {
+//         if (num<k){
+//           target+=s[i]
+//         }
+//         if(s[i]===' '){
+//           num++
+//         }
+//       }
+//       if (num === k-1){
+//         return target
+//       }
+//         return target.slice(0,target.length-1)
+//     };
+//     console.log(truncateSentence("chopper is not a tanuki", 5));
 
-      // s = s.split(' ')
-      // while(i< s.length){
-      //     if (i<k-1){
-      //       target+= s[i] + ' '
-      //     }
-      //     if (i === k-1){
-      //       target+= s[i]
-      //     }
-      //     i++
-      // }
-      for (let i = 0; i < s.length; i++) {
-        if (num<k){
-          target+=s[i]
-        }
-        if(s[i]===' '){
-          num++
-        }
-      }
-      if (num === k-1){
-        return target
-      }
-        return target.slice(0,target.length-1)
+// 349
+// 给定两个数组，编写一个函数来计算它们的交集。
+// 示例 2：
+//
+// 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+// 输出：[9,4]
+    var intersection = function(nums1, nums2) {
+      let i = 0
+      let j = 0
+      let target = []
+      let  chang = nums1.length > nums2.length ? nums1 : nums2
+      let duan = nums2.length > nums1.length  ? nums1 : nums2
+      duan.map(item1=>{
+        chang.map(item2=>{
+          if (item1===item2){
+            target.push(item1)
+          }
+        })
+      })
+      target = [...new Set(target)]
+      return target
     };
-    console.log(truncateSentence("chopper is not a tanuki", 5));
-
+    console.log(intersection([4, 5, 9], [9, 4, 9, 8, 4]));
   }
 }
 </script>
