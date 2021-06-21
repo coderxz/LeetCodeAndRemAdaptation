@@ -494,27 +494,58 @@ export default {
 // 输入：nums = [1,2,3,2]
 // 输出：4
 // 解释：唯一元素为 [1,3] ，和为 4 。
-    var sumOfUnique = function(nums) {
-      let i = 0
-      let target = 0
-      let obj = {}
-      while(i < nums.length){
-        if (obj[nums[i]]){
-          obj[nums[i]]++
-        }else{
-          obj[nums[i]] = 1
-        }
-      i++
-      }
-      for (let j in obj){
-        if(obj[j] === 1){
-          target += j*1
-        }
-      }
-      return target
-    };
-    console.log(sumOfUnique([1, 2, 3, 2]));
+//     var sumOfUnique = function(nums) {
+//       let i = 0
+//       let target = 0
+//       let obj = {}
+//       while(i < nums.length){
+//         if (obj[nums[i]]){
+//           obj[nums[i]]++
+//         }else{
+//           obj[nums[i]] = 1
+//         }
+//       i++
+//       }
+//       for (let j in obj){
+//         if(obj[j] === 1){
+//           target += j*1
+//         }
+//       }
+//       return target
+//     };
+//     console.log(sumOfUnique([1, 2, 3, 2]));
 
+// 实现一个算法，确定一个字符串 s 的所有字符是否全都不同。
+// 示例 1：
+//
+// 输入: s = "leetcode"
+// 输出: false
+
+    // var isUnique = function(s) {
+    // return [...new Set(s)].length === s.length
+    // };
+    // console.log(isUnique("leetcode"));
+
+
+// 数组扁平化:将数组里面的数组打开，最后合并为一个数组
+var fn = function (arr){
+  let target = []
+  let fn2 = function (arr){
+    if (arr instanceof Array){
+      arr.map(item=>{
+        if (item instanceof Array){
+          fn2(item)
+        }
+        if (!(item instanceof Array)){
+          target.push(item)
+        }
+      })
+    }
+  }
+  fn2(arr)
+  console.log(target)
+}
+fn([[0,4,5,6],1,2,[3,4,5,[6,7,8],9],10,[11,12,[13,[14,15,16,[17,[18]]]]]])
   }
 }
 </script>
