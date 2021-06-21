@@ -388,28 +388,78 @@ export default {
 //
 // 输入: k = 3, n = 9
 // 输出: [[1,2,6], [1,3,5], [2,3,4]]
-    var combinationSum3 = function(k, n) {
-      const res = [];
-      // 基于当前已选的comb数组(和为sum)，在数start到数9中继续选
-      const dfs = (start, comb, sum) => {
-        if (comb.length === k) {     // 选够k个数 结束递归
-          if (sum === n) {           // 组合中数之和等于n
-            res.push(comb.slice()); // 将它的拷贝加入解集
-          }
-          return;
-        }
-        for (let i = start; i <= 9; i++) { // 枚举出所有的选择（选项）
-          comb.push(i);                    // 作出一个选择i
-          dfs(i + 1, comb, sum + i);// 基于该选择i，往下递归
-          comb.pop();                      // 撤销这个选择
-        }
-      };
+//     var combinationSum3 = function(k, n) {
+//       const res = [];
+//       // 基于当前已选的comb数组(和为sum)，在数start到数9中继续选
+//       const dfs = (start, comb, sum) => {
+//         if (comb.length === k) {     // 选够k个数 结束递归
+//           if (sum === n) {           // 组合中数之和等于n
+//             res.push(comb.slice()); // 将它的拷贝加入解集
+//           }
+//           return;
+//         }
+//         for (let i = start; i <= 9; i++) { // 枚举出所有的选择（选项）
+//           comb.push(i);                    // 作出一个选择i
+//           dfs(i + 1, comb, sum + i);// 基于该选择i，往下递归
+//           comb.pop();                      // 撤销这个选择
+//         }
+//       };
+//
+//       dfs(1, [], 0);  // 入口
+//       return res;
+//
+//     };
+//     console.log(combinationSum3(3, 7));
 
-      dfs(1, [], 0);  // 入口
-      return res;
+//     句子 是一个单词列表，列表中的单词之间用单个空格隔开，且不存在前导或尾随空格。每个单词仅由大小写英文字母组成（不含标点符号）。
+// 例如，"Hello World"、"HELLO" 和 "hello world hello world" 都是句子。
+// 给你一个句子 s 和一个整数 k ，请你将 s 截断 ，使截断后的句子仅含 前 k 个单词。返回 截断 s 后得到的句子。
+//     示例 1：
+//
+// 输入：s = "Hello how are you Contestant", k = 4
+//     输出："Hello how are you"
+//     解释：
+// s 中的单词为 ["Hello", "how" "are", "you", "Contestant"]
+//     前 4 个单词为 ["Hello", "how", "are", "you"]
+//     因此，应当返回 "Hello how are you"
+    var truncateSentence = function(s, k) {
+      let target = ''
+      let num = 0
+      // let i = 0
+      // s.split(' ').map((item,index)=>{
+      //
+      //   if (index<k-1){
+      //     target+= item + ' '
+      //   }
+      //   if (index === k-1){
+      //     target+= item
+      //   }
+      // })
 
+      // s = s.split(' ')
+      // while(i< s.length){
+      //     if (i<k-1){
+      //       target+= s[i] + ' '
+      //     }
+      //     if (i === k-1){
+      //       target+= s[i]
+      //     }
+      //     i++
+      // }
+      for (let i = 0; i < s.length; i++) {
+        if (num<k){
+          target+=s[i]
+        }
+        if(s[i]===' '){
+          num++
+        }
+      }
+      if (num === k-1){
+        return target
+      }
+        return target.slice(0,target.length-1)
     };
-    console.log(combinationSum3(9, 45));
+    console.log(truncateSentence("chopper is not a tanuki", 5));
 
   }
 }
