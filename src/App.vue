@@ -467,23 +467,54 @@ export default {
 //
 // 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 // 输出：[9,4]
-    var intersection = function(nums1, nums2) {
+//     var intersection = function(nums1, nums2) {
+//       let i = 0
+//       let j = 0
+//       let target = []
+//       let  chang = nums1.length > nums2.length ? nums1 : nums2
+//       let duan = nums2.length > nums1.length  ? nums1 : nums2
+//       duan.map(item1=>{
+//         chang.map(item2=>{
+//           if (item1===item2){
+//             target.push(item1)
+//           }
+//         })
+//       })
+//       target = [...new Set(target)]
+//       return target
+//     };
+//     console.log(intersection([4, 5, 9], [9, 4, 9, 8, 4]));
+
+// 1748
+// 给你一个整数数组 nums 。数组中唯一元素是那些只出现 恰好一次 的元素。
+//
+// 请你返回 nums 中唯一元素的 和 。
+// 示例 1：
+//
+// 输入：nums = [1,2,3,2]
+// 输出：4
+// 解释：唯一元素为 [1,3] ，和为 4 。
+    var sumOfUnique = function(nums) {
       let i = 0
-      let j = 0
-      let target = []
-      let  chang = nums1.length > nums2.length ? nums1 : nums2
-      let duan = nums2.length > nums1.length  ? nums1 : nums2
-      duan.map(item1=>{
-        chang.map(item2=>{
-          if (item1===item2){
-            target.push(item1)
-          }
-        })
-      })
-      target = [...new Set(target)]
+      let target = 0
+      let obj = {}
+      while(i < nums.length){
+        if (obj[nums[i]]){
+          obj[nums[i]]++
+        }else{
+          obj[nums[i]] = 1
+        }
+      i++
+      }
+      for (let j in obj){
+        if(obj[j] === 1){
+          target += j*1
+        }
+      }
       return target
     };
-    console.log(intersection([4, 5, 9], [9, 4, 9, 8, 4]));
+    console.log(sumOfUnique([1, 2, 3, 2]));
+
   }
 }
 </script>
