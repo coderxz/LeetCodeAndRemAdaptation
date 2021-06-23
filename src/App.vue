@@ -528,24 +528,128 @@ export default {
 
 
 // 数组扁平化:将数组里面的数组打开，最后合并为一个数组
-var fn = function (arr){
-  let target = []
-  let fn2 = function (arr){
-    if (arr instanceof Array){
-      arr.map(item=>{
-        if (item instanceof Array){
-          fn2(item)
-        }
-        if (!(item instanceof Array)){
-          target.push(item)
-        }
-      })
-    }
-  }
-  fn2(arr)
-  console.log(target)
-}
-fn([[0,4,5,6],1,2,[3,4,5,[6,7,8],9],10,[11,12,[13,[14,15,16,[17,[18]]]]]])
+// var fn = function (arr){
+//   let target = []
+//   let fn2 = function (arr){
+//     if (arr instanceof Array){
+//       arr.map(item=>{
+//         if (item instanceof Array){
+//           fn2(item)
+//         }
+//         if (!(item instanceof Array)){
+//           target.push(item)
+//         }
+//       })
+//     }
+//   }
+//   fn2(arr)
+//   console.log(target)
+// }
+// fn([[0,4,5,6],1,2,[3,4,5,[6,7,8],9],10,[11,12,[13,[14,15,16,[17,[18]]]]]])
+
+//442
+// 给定一个整数数组 a，其中1 ≤ a[i] ≤ n （n为数组长度）, 其中有些元素出现两次而其他元素出现一次。
+//
+// 找到所有出现两次的元素。
+//
+// 你可以不用到任何额外空间并在O(n)时间复杂度内解决这个问题吗？
+// 示例：
+//
+// 输入:
+// [4,3,2,7,8,2,3,1]
+//
+// 输出:
+// [2,3]
+//     var findDuplicates = function(nums) {
+//       let target = []
+//       let obj = {}
+//       let i = 0
+//       while (i<nums.length){
+//         if (obj[nums[i]]){
+//           obj[nums[i]]++
+//           target.push(nums[i])
+//         }else{
+//           obj[nums[i]] = 1
+//         }
+//         i++
+//       }
+//       return target
+//     };
+//     console.log(findDuplicates([4, 3, 2, 7, 8, 2, 3, 1]));
+
+
+// 给你两个非空 的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
+// 请你将两个数相加，并以相同形式返回一个表示和的链表。
+// 你可以假设除了数字 0 之外，这两个数都不会以 0开头。
+//     输入：l1 = [2,4,3], l2 = [5,6,4]
+//     输出：[7,0,8]
+//     解释：342 + 465 = 807.
+//
+//     输入：l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+//     输出：[8,9,9,9,0,0,0,1]
+
+    // var addTwoNumbers = function(l1, l2) {
+    //   let target = []
+    //   let k = 1
+    //   let l = 1
+    //   let y = 1
+    //   let l11 = []
+    //   let l22 = []
+    //   let j = l1.length>l2.length? l1.length:l2.length
+    //   console.log(j)
+    //   let i = 0
+    //   while (k<=l1.length){
+    //     l11.push(l1[l1.length-k])
+    //     k++
+    //   }
+    //   while (l<=l2.length){
+    //     l22.push(l2[l2.length-l])
+    //     l++
+    //   }
+    //   console.log(l22,'---')
+    //   let num1 = ''
+    //   let num2 = ''
+    //   while(i < j ){
+    //     if (l11[i]){
+    //       num1+=l11[i]
+    //     }
+    //     if (l22[i]){
+    //       num2+=l22[i]
+    //     }
+    //     i++
+    //   }
+    //   let num = num1*1 + num2*1
+    //   let str = num.toString()
+    //   while(y<=str.length){
+    //     target.push(str[str.length-y]*1)
+    //     y++
+    //   }
+    //   return target
+    // };
+    //
+    // console.log(addTwoNumbers([2, 4, 3], [5, 6, 4,8]));
+
+// 给你两个有序整数数组nums1 和 nums2，请你将 nums2 合并到nums1中，使 nums1 成为一个有序数组。
+//
+// 初始化nums1 和 nums2 的元素数量分别为m 和 n 。你可以假设nums1 的空间大小等于m + n，这样它就有足够的空间保存来自 nums2 的元素。
+// 示例 1：
+//
+// 输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+// 输出：[1,2,2,3,5,6]
+
+    // var merge = function(nums1, m, nums2, n) {
+    //   let i = 0
+    //   nums1.splice(m,nums1.length)
+    //   nums2.splice(n,nums1.length)
+    //   while(i<nums2.length){
+    //     nums1.push(nums2[i])
+    //     i++
+    //   }
+    //   return nums1.sort((a,b)=>{
+    //     return a-b
+    //   })
+    // };
+    // console.log(merge([1,2,3,0,0,0], 3, [2,5,6], 3));
   }
 }
 </script>
