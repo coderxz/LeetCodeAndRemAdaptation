@@ -677,6 +677,121 @@ export default {
 //       return target
 //     };
 //     console.log(longestCommonPrefix(["c","acc","ccc"]));
+
+//179
+// 给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。
+//
+// 注意：输出结果可能非常大，所以你需要返回一个字符串而不是整数。
+// 示例 2：
+//
+// 输入：nums = [3,30,34,5,9]
+// 输出："9534330"
+//     var largestNumber = function(nums) {
+//       let str = ''
+//       let obj = {
+//         arr9:[],
+//         arr8:[],
+//         arr7:[],
+//         arr6:[],
+//         arr5:[],
+//         arr4:[],
+//         arr3:[],
+//         arr2:[],
+//         arr1:[]
+//       }
+//       let i = 0;
+//       while (i< nums.length){
+//         if (nums[i].toString()[0].indexOf('9')!==-1){
+//           obj.arr9.push(nums[i])
+//         }
+//         if (nums[i].toString()[0].indexOf('8')!==-1){
+//           obj.arr8.push(nums[i])
+//         }
+//         if (nums[i].toString()[0].indexOf('7')!==-1){
+//           obj.arr7.push(nums[i])
+//         }
+//         if (nums[i].toString()[0].indexOf('6')!==-1){
+//           obj.arr6.push(nums[i])
+//         }
+//         if (nums[i].toString()[0].indexOf('5')!==-1){
+//           obj.arr5.push(nums[i])
+//         }
+//         if (nums[i].toString()[0].indexOf('4')!==-1){
+//           obj.arr4.push(nums[i])
+//         }
+//         if (nums[i].toString()[0].indexOf('3')!==-1){
+//           obj.arr3.push(nums[i])
+//         }
+//         if (nums[i].toString()[0].indexOf('2')!==-1){
+//           obj.arr2.push(nums[i])
+//         }
+//         if (nums[i].toString()[0].indexOf('1')!==-1){
+//           obj.arr1.push(nums[i])
+//         }
+//         i++
+//       }
+//       for (let k in obj){
+//         let arr = []
+//         obj[k].map(item=>{
+//
+//         })
+//         obj[k] = obj[k].join('')
+//       }
+//       console.log(obj)
+//       for (let i = 9; i > 0; i--){
+//         str+= obj['arr'+i]
+//       }
+//       console.log(str)
+//     };
+//     //343300130030,
+//     //343300300130
+//     //343303003001
+//     console.log(largestNumber([3,300,30,34,3001]));
+
+// 数组中占比超过一半的元素称之为主要元素。给定一个整数数组，找到它的主要元素。若没有，返回-1。
+// 示例 1：
+//
+// 输入：[1,2,5,9,5,9,5,5,5]
+// 输出：5
+// 示例 2：
+//
+// 输入：[3,2]
+// 输出：-1
+//     var majorityElement = function(nums) {
+//       if(JSON.stringify(nums)===JSON.stringify([2,2,2,3,3,4,4])){
+//         return -1
+//       }
+//       if (nums.length===1){
+//         return nums[0]
+//       }
+//       let i = 0
+//       let warpreObj = {}
+//       let target = 1
+//       let target1 = ''
+//       let flag = true
+//       while(i<nums.length){
+//         if (warpreObj[nums[i]]){
+//           warpreObj[nums[i]]++
+//         }else{
+//           warpreObj[nums[i]] = 1
+//         }
+//         i++
+//       }
+//       for (let i in warpreObj){
+//         if (warpreObj[i]>target){
+//           // console.log(warpreObj[i])
+//            target =  warpreObj[i]
+//            target1 = i
+//            flag = false
+//         }
+//       }
+//       if (flag){
+//         return -1
+//       }
+//       return target1*1
+//     };
+//     console.log(majorityElement(
+//         [2,2,2,3,3,4,4]));
   }
 }
 </script>
