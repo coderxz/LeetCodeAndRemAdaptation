@@ -855,28 +855,54 @@ export default {
 // 步骤 5） 2 是偶数，除以 2 得到 1 。
 // 步骤 6） 1 是奇数，减 1 得到 0 。
 
-    var numberOfSteps = function(num) {
-      let target = 0
-      if (num===0){
-        return 0
-      }
-      while(num>0){
-        if (num%2===0){
-          num  = num / 2
-          target++
-        }
-        if (num%2!==0){
-          num = num -1
-          target++
-        }
-        if (num===0){
-          break
-        }
-      }
-      return target
-    };
-    console.log(numberOfSteps(11));
+    // var numberOfSteps = function(num) {
+    //   let target = 0
+    //   if (num===0){
+    //     return 0
+    //   }
+    //   while(num>0){
+    //     if (num%2===0){
+    //       num  = num / 2
+    //       target++
+    //     }
+    //     if (num%2!==0){
+    //       num = num -1
+    //       target++
+    //     }
+    //     if (num===0){
+    //       break
+    //     }
+    //   }
+    //   return target
+    // };
+    // console.log(numberOfSteps(11));
 
+
+// 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+
+// 示例:
+//
+// 输入: [0,1,0,3,12]
+// 输出: [1,3,12,0,0]
+    var moveZeroes = function(nums) {
+      let count = 0
+      let i = 0
+      //把数组中所有的0删除,并记录删除的个数
+      while (nums.indexOf(0)!==-1){
+        nums.splice(nums.indexOf(0),1)
+        count++
+      }
+      //把之前删除的0全部放在原数组后面
+      while (i<count){
+        nums.push(0)
+        i++
+      }
+      //将原数组返回(必须返回原数组)
+      return nums
+    };
+
+    console.log(moveZeroes(
+        [0,0,1]));
   }
 }
 </script>
