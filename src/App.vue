@@ -792,6 +792,91 @@ export default {
 //     };
 //     console.log(majorityElement(
 //         [2,2,2,3,3,4,4]));
+
+// 冒泡排序
+//     let sort = function (nums){
+//       let temp = 0
+//         for (let i = 0; i <= nums.length-1; i++){
+//           for (let j = 0; j < nums.length-1-i; j++){
+//             if (nums[j]>nums[j+1]){
+//               temp = nums[j]
+//               nums[j] = nums[j+1]
+//               nums[j+1] = temp
+//             }
+//           }
+//         }
+//       console.log(nums)
+//     }
+//     sort([6,1,2,4,3,8,9,5,7,10,100,101,888,50,90,-1,-66])
+
+// 编写一个方法，计算从 0 到 n (含 n) 中数字 2 出现的次数。
+// 示例:
+//
+// 输入: 25
+// 输出: 9
+// 解释: (2, 12, 20, 21, 22, 23, 24, 25)(注意 22 应该算作两次)
+//     var numberOf2sInRange = function(n) {
+//       let target = 0
+//       // let f = 0
+//       // if (n>10000000){
+//       //   while (f<n){
+//       //     target+=7000000
+//       //     n -=10000000
+//       //     f++
+//       //   }
+//       // }
+//       let i = 1
+//       let j = 0
+//       while(i<=n){
+//         while (j<i.toString().length){
+//           if (i.toString()[j]==='2'){
+//             target += 1
+//           }
+//           j++
+//         }
+//         j = 0
+//         i++
+//       }
+//       return target
+//     };
+//     // 5825154852
+//     console.log(numberOf2sInRange(60000000));
+
+// 给你一个非负整数 num ，请你返回将它变成 0 所需要的步数。 如果当前数字是偶数，你需要把它除以 2 ；否则，减去 1 。
+// 示例 1：
+//
+// 输入：num = 14
+// 输出：6
+// 解释：
+// 步骤 1) 14 是偶数，除以 2 得到 7 。
+// 步骤 2） 7 是奇数，减 1 得到 6 。
+// 步骤 3） 6 是偶数，除以 2 得到 3 。
+// 步骤 4） 3 是奇数，减 1 得到 2 。
+// 步骤 5） 2 是偶数，除以 2 得到 1 。
+// 步骤 6） 1 是奇数，减 1 得到 0 。
+
+    var numberOfSteps = function(num) {
+      let target = 0
+      if (num===0){
+        return 0
+      }
+      while(num>0){
+        if (num%2===0){
+          num  = num / 2
+          target++
+        }
+        if (num%2!==0){
+          num = num -1
+          target++
+        }
+        if (num===0){
+          break
+        }
+      }
+      return target
+    };
+    console.log(numberOfSteps(11));
+
   }
 }
 </script>
