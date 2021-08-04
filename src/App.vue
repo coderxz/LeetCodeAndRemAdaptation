@@ -916,26 +916,79 @@ export default {
 //
 // 输入: [2,2,1]
 // 输出: 1
-    var singleNumber = function(nums) {
-      let i = 0
-      let obj = {}
-      while(i<nums.length){
-        if (obj[nums[i]]){
-          obj[nums[i]]++
-        }else{
-          obj[nums[i]] = 1
-        }
-        i++
-      }
-      console.log(obj)
-      for(let k in obj){
-        if (obj[k]===1){
-          return  k
-        }
-      }
-    };
+//     var singleNumber = function(nums) {
+//       let i = 0
+//       let obj = {}
+//       while(i<nums.length){
+//         if (obj[nums[i]]){
+//           obj[nums[i]]++
+//         }else{
+//           obj[nums[i]] = 1
+//         }
+//         i++
+//       }
+//       console.log(obj)
+//       for(let k in obj){
+//         if (obj[k]===1){
+//           return  k
+//         }
+//       }
+//     };
+//
+//     console.log(singleNumber([4,1,2,1,2]))
 
-    console.log(singleNumber([4,1,2,1,2]))
+// 给定仅有小写字母组成的字符串数组 A，返回列表中的每个字符串中都显示的全部字符（包括重复字符）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。
+//
+// 你可以按任意顺序返回答案。
+//
+//
+//
+// 示例 1：
+//
+// 输入：["bella","label","roller"]
+// 输出：["e","l","l"]
+//
+//     var commonChars = function(words) {
+//         let i = 0
+//       let target = []
+//         // words.forEach((item,index)=>{
+//         //   words.forEach((item1,index1)=>{
+//         //     while (i<item.length){
+//         //       if (item1.indexOf(item[i])!==-1&&index!==index1){
+//         //         target.push(item[i])
+//         //         break
+//         //       }
+//         //       i++
+//         //     }
+//         //     i = 0
+//         //   })
+//         // })
+//
+//       return target
+//     };
+//     console.log(commonChars(["bella","label","roller"]))
+
+// 给定一个长度为 n 的 非空 整数数组，每次操作将会使 n - 1 个元素增加 1。找出让数组所有元素相等的最小操作次数。
+//
+// 示例：
+//
+// 输入：
+// [1,2,3]
+// 输出：
+// 3
+// 解释：
+// 只需要3次操作（注意每次操作会增加两个元素的值）：
+// [1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]
+
+    var minMoves = function(nums) {
+      let min=Math.min(...nums)
+      let sum=0;
+      for(let i=0;i<nums.length;i++){
+        sum+=nums[i]-min
+      }
+      return sum
+    };
+    console.log(minMoves([1,2,3,9,5]))
   }
 }
 </script>
