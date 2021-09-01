@@ -1060,21 +1060,46 @@ export default {
 //       })
 //       return target
 //     };
-    var maxProfit = function(p) {
-      let target = 0
-      let i = 0
-      let min = p[0]
-      while(i<p.length){
-        if (min>p[i]){
-          min = p[i]
-        }else if (p[i]-min>target){
-          target = p[i]-min
+//     var maxProfit = function(p) {
+//       let target = 0
+//       let i = 0
+//       let min = p[0]
+//       while(i<p.length){
+//         if (min>p[i]){
+//           min = p[i]
+//         }else if (p[i]-min>target){
+//           target = p[i]-min
+//         }
+//         i++
+//       }
+//       return target
+//     };
+//     console.log(maxProfit([7,1,5,3,6,4]))
+
+
+// 输入：'wqerwqewqgewr'
+// 输出：['wqe','rwq',ewq','gew','r']
+    let fn = function (s){
+      let target = []
+      let j = 3
+      let targetStr = ''
+      for (let i = 0; i <= s.length-1; i++){
+        if (j<=3&&j>0){
+          targetStr += s[i]
+          j--
+          if (targetStr.length===3){
+            target.push(targetStr)
+            targetStr = ''
+            j = 3
+          }
         }
-        i++
+      }
+      if (targetStr.length<3){
+        target.push(targetStr)
       }
       return target
-    };
-    console.log(maxProfit([7,1,5,3,6,4]))
+    }
+    console.log(fn('wqerwqewqgewr'))
 
 
   }
