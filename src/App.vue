@@ -1079,29 +1079,38 @@ export default {
 
 // 输入：'wqerwqewqgewr'
 // 输出：['wqe','rwq',ewq','gew','r']
-    let fn = function (s){
-      let target = []
-      let j = 3
-      let targetStr = ''
-      for (let i = 0; i <= s.length-1; i++){
-        if (j<=3&&j>0){
-          targetStr += s[i]
-          j--
-          if (targetStr.length===3){
-            target.push(targetStr)
-            targetStr = ''
-            j = 3
-          }
-        }
-      }
-      if (targetStr.length<3){
-        target.push(targetStr)
-      }
-      return target
-    }
-    console.log(fn('wqerwqewqgewr'))
+//     let fn = function (s){
+//       let target = []
+//       let j = 3
+//       let targetStr = ''
+//       for (let i = 0; i <= s.length-1; i++){
+//         if (j<=3&&j>0){
+//           targetStr += s[i]
+//           j--
+//           if (targetStr.length===3){
+//             target.push(targetStr)
+//             targetStr = ''
+//             j = 3
+//           }
+//         }
+//       }
+//       if (targetStr.length<3&&targetStr.length!==0){
+//         target.push(targetStr)
+//       }
+//       return target
+//     }
+//     console.log(fn('34hgq3h4q34h'))
 
-
+// 法二
+//     let a="abdxsszzzqasdfsdfwefwgev12324123+++123"
+//     let b=[]
+//     let c=Math.ceil(a.length/3)
+//     let k=0
+//     for (let i=0;i<c;i++){
+//       b.push(a.substring(k,k+3))
+//       k += 3
+//     }
+//     console.log(b)
   }
 }
 </script>
