@@ -1111,6 +1111,31 @@ export default {
 //       k += 3
 //     }
 //     console.log(b)
+
+// 剑指 Offer 57. 和为s的两个数字
+//输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们的和正好是s。如果有多对数字的和等于s，则输出任意一对即可。
+// 示例 1：
+//
+// 输入：nums = [2,7,11,15], target = 9
+// 输出：[2,7] 或者 [7,2]
+
+    var twoSum = function(a, b) {
+      let i = 0;
+      let j = a.length-1
+      while (j>i){
+        let s = a[i] + a[j]
+        if (s>b){
+          j--
+        }else if (s<b){
+          i++
+        }else {
+          return [a[i],a[j]]
+        }
+      }
+    };
+    console.log(twoSum(   [16,16,18,24,30,32],48))
+    // console.log(twoSum([0,4,3,0],7))
+
   }
 }
 </script>
