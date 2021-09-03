@@ -1143,39 +1143,58 @@ export default {
 //
 // 输入：nums = [-1,0,1,2,-1,-4]
 // 输出：[[-1,-1,2],[-1,0,1]]
-    var threeSum = function(a) {
-      let targetArr = []
-      a.sort((a,b)=>{
-        return a-b
-      })
-      for (let i = 0; i < a.length; i++){
-        if (a[i]>0) break
-        if (a[i]===a[i-1]) continue
-        let L = i + 1;
-        let R = a.length - 1;
-        while (L<R){
-          const S = a[i] + a[L] + a[R]
-          if (S<0){
-            L++
-          }else if (S>0){
-            R--
-          }else{
-            targetArr.push([a[i] , a[L] , a[R]])
-            while (a[L]===a[L+1]){
-              L++
-            }
-            while (a[R]===a[R-1]){
-              R--
-            }
-            L++;
-            R--
-          }
+//     var threeSum = function(a) {
+//       let targetArr = []
+//       a.sort((a,b)=>{
+//         return a-b
+//       })
+//       for (let i = 0; i < a.length; i++){
+//         if (a[i]>0) break
+//         if (a[i]===a[i-1]) continue
+//         let L = i + 1;
+//         let R = a.length - 1;
+//         while (L<R){
+//           const S = a[i] + a[L] + a[R]
+//           if (S<0){
+//             L++
+//           }else if (S>0){
+//             R--
+//           }else{
+//             targetArr.push([a[i] , a[L] , a[R]])
+//             while (a[L]===a[L+1]){
+//               L++
+//             }
+//             while (a[R]===a[R-1]){
+//               R--
+//             }
+//             L++;
+//             R--
+//           }
+//
+//         }
+//       }
+//       return targetArr
+//     };
+//     console.log(threeSum([-1,0,1,2,-1,-4]))
 
-        }
+// 设计一个算法，找出数组中最小的k个数。以任意顺序返回这k个数均可。
+// 示例：
+//
+// 输入： arr = [1,3,5,7,2,4,6,8], k = 4
+// 输出： [1,2,3,4]
+
+    var smallestK = function(arr, k) {
+      let i = 0
+      let target = []
+      arr.sort((a,b)=>a-b)
+      while (i<k){
+        target.push(arr[i])
+        i++
       }
-      return targetArr
+      return target
     };
-    console.log(threeSum([-1,0,1,2,-1,-4]))
+    console.log(smallestK([1,3,5,7,2,4,6,8],4))
+
   }
 }
 </script>
