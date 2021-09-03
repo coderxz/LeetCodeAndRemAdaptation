@@ -1119,23 +1119,63 @@ export default {
 // 输入：nums = [2,7,11,15], target = 9
 // 输出：[2,7] 或者 [7,2]
 
-    var twoSum = function(a, b) {
-      let i = 0;
-      let j = a.length-1
-      while (j>i){
-        let s = a[i] + a[j]
-        if (s>b){
-          j--
-        }else if (s<b){
-          i++
-        }else {
-          return [a[i],a[j]]
-        }
-      }
-    };
-    console.log(twoSum(   [16,16,18,24,30,32],48))
+    // var twoSum = function(a, b) {
+    //   let i = 0;
+    //   let j = a.length-1
+    //   while (j>i){
+    //     let s = a[i] + a[j]
+    //     if (s>b){
+    //       j--
+    //     }else if (s<b){
+    //       i++
+    //     }else {
+    //       return [a[i],a[j]]
+    //     }
+    //   }
+    // };
+    // console.log(twoSum(   [16,16,18,24,30,32],48))
     // console.log(twoSum([0,4,3,0],7))
 
+//15.三数之和
+// 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+// 注意：答案中不可以包含重复的三元组。
+// 示例 1：
+//
+// 输入：nums = [-1,0,1,2,-1,-4]
+// 输出：[[-1,-1,2],[-1,0,1]]
+    var threeSum = function(a) {
+      let targetArr = []
+      a.sort((a,b)=>{
+        return a-b
+      })
+      for (let i = 0; i < a.length; i++){
+        if (a[i]>0) break
+        if (a[i]===a[i-1]) continue
+        let L = i + 1;
+        let R = a.length - 1;
+        while (L<R){
+          const S = a[i] + a[L] + a[R]
+          if (S<0){
+            L++
+          }else if (S>0){
+            R--
+          }else{
+            targetArr.push([a[i] , a[L] , a[R]])
+            while (a[L]===a[L+1]){
+              L++
+            }
+            while (a[R]===a[R-1]){
+              R--
+            }
+            L++;
+            R--
+          }
+
+        }
+      }
+      return targetArr
+    };
+    console.log(threeSum([-1,0,1,2,-1,-4]))
   }
 }
 </script>
