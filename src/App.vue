@@ -1203,63 +1203,75 @@ export default {
 // 输出：2
 // 解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。
 
-    var threeSumClosest = function(nums, target) {
-      let temp = 0
-      let hhh = 0
-      let targetArr = []
-      if (nums.length===3) return nums[0]+nums[1]+nums[2]
-      if (nums.length>3){
-        nums.sort((a,b)=>a-b)
-        for (let i = 0; i < nums.length; i++){
-          let L = i+1
-          let R = nums.length-1
-          while (L<R){
-            const S = nums[i]+nums[L]+nums[R]
-            if (S>target){
-              if (temp>S-target){
-                temp = S-target
-                hhh = S
-              }
-              targetArr.push(S)
+    // var threeSumClosest = function(nums, target) {
+    //   let temp = 0
+    //   let hhh = 0
+    //   let targetArr = []
+    //   if (nums.length===3) return nums[0]+nums[1]+nums[2]
+    //   if (nums.length>3){
+    //     nums.sort((a,b)=>a-b)
+    //     for (let i = 0; i < nums.length; i++){
+    //       let L = i+1
+    //       let R = nums.length-1
+    //       while (L<R){
+    //         const S = nums[i]+nums[L]+nums[R]
+    //         if (S>target){
+    //           if (temp>S-target){
+    //             temp = S-target
+    //             hhh = S
+    //           }
+    //           targetArr.push(S)
+    //
+    //           R--
+    //         }else if (S<target){
+    //           if (temp>S-target){
+    //             temp = S-target
+    //             hhh = S
+    //           }
+    //           targetArr.push(S)
+    //           L++
+    //         }else {
+    //           L++;
+    //           R--;
+    //           targetArr.push(S)
+    //           return S
+    //         }
+    //
+    //       }
+    //     }
+    //     console.log(temp,hhh,'--')
+    //     targetArr.push(target)
+    //     targetArr.sort((a,b)=>a-b);
+    //     console.log(targetArr)
+    //     if (targetArr.indexOf(target)===0){
+    //       return targetArr[1]
+    //     }
+    //     if (targetArr.indexOf(target)===targetArr.length-1){
+    //       return targetArr[targetArr.length-2]
+    //     }
+    //     if (targetArr[targetArr.indexOf(target)+1]===target||targetArr[targetArr.indexOf(target)-1]===target){
+    //       return target
+    //     }else if ((targetArr[targetArr.indexOf(target)+1]-target)>(target-targetArr[targetArr.indexOf(target)-1])){
+    //       return targetArr[targetArr.indexOf(target)-1]
+    //     }else {
+    //       return targetArr[targetArr.indexOf(target)+1]
+    //     }
+    //   }
+    // };
+    // //[0,2,1,-3], 1
+    // console.log(threeSumClosest([0,2,1,-3], 1))
 
-              R--
-            }else if (S<target){
-              if (temp>S-target){
-                temp = S-target
-                hhh = S
-              }
-              targetArr.push(S)
-              L++
-            }else {
-              L++;
-              R--;
-              targetArr.push(S)
-              return S
-            }
-
-          }
-        }
-        console.log(temp,hhh,'--')
-        targetArr.push(target)
-        targetArr.sort((a,b)=>a-b);
-        console.log(targetArr)
-        if (targetArr.indexOf(target)===0){
-          return targetArr[1]
-        }
-        if (targetArr.indexOf(target)===targetArr.length-1){
-          return targetArr[targetArr.length-2]
-        }
-        if (targetArr[targetArr.indexOf(target)+1]===target||targetArr[targetArr.indexOf(target)-1]===target){
-          return target
-        }else if ((targetArr[targetArr.indexOf(target)+1]-target)>(target-targetArr[targetArr.indexOf(target)-1])){
-          return targetArr[targetArr.indexOf(target)-1]
-        }else {
-          return targetArr[targetArr.indexOf(target)+1]
-        }
-      }
+// 75.给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
+//
+// 此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
+// 示例 1：
+//
+// 输入：nums = [2,0,2,1,1,0]
+// 输出：[0,0,1,1,2,2]
+    var sortColors = function(nums) {
+      return nums.sort((a,b)=>a-b)
     };
-    //[0,2,1,-3], 1
-    console.log(threeSumClosest([0,2,1,-3], 1))
+    console.log(sortColors([2,0,1]))
 
   }
 }
