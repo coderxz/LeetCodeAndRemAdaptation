@@ -1183,17 +1183,83 @@ export default {
 // 输入： arr = [1,3,5,7,2,4,6,8], k = 4
 // 输出： [1,2,3,4]
 
-    var smallestK = function(arr, k) {
-      let i = 0
-      let target = []
-      arr.sort((a,b)=>a-b)
-      while (i<k){
-        target.push(arr[i])
-        i++
+    // var smallestK = function(arr, k) {
+    //   let i = 0
+    //   let target = []
+    //   arr.sort((a,b)=>a-b)
+    //   while (i<k){
+    //     target.push(arr[i])
+    //     i++
+    //   }
+    //   return target
+    // };
+    // console.log(smallestK([1,3,5,7,2,4,6,8],4))
+
+
+// 16.给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
+// 示例：
+//
+// 输入：nums = [-1,2,1,-4], target = 1
+// 输出：2
+// 解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。
+
+    var threeSumClosest = function(nums, target) {
+      let temp = 0
+      let hhh = 0
+      let targetArr = []
+      if (nums.length===3) return nums[0]+nums[1]+nums[2]
+      if (nums.length>3){
+        nums.sort((a,b)=>a-b)
+        for (let i = 0; i < nums.length; i++){
+          let L = i+1
+          let R = nums.length-1
+          while (L<R){
+            const S = nums[i]+nums[L]+nums[R]
+            if (S>target){
+              if (temp>S-target){
+                temp = S-target
+                hhh = S
+              }
+              targetArr.push(S)
+
+              R--
+            }else if (S<target){
+              if (temp>S-target){
+                temp = S-target
+                hhh = S
+              }
+              targetArr.push(S)
+              L++
+            }else {
+              L++;
+              R--;
+              targetArr.push(S)
+              return S
+            }
+
+          }
+        }
+        console.log(temp,hhh,'--')
+        targetArr.push(target)
+        targetArr.sort((a,b)=>a-b);
+        console.log(targetArr)
+        if (targetArr.indexOf(target)===0){
+          return targetArr[1]
+        }
+        if (targetArr.indexOf(target)===targetArr.length-1){
+          return targetArr[targetArr.length-2]
+        }
+        if (targetArr[targetArr.indexOf(target)+1]===target||targetArr[targetArr.indexOf(target)-1]===target){
+          return target
+        }else if ((targetArr[targetArr.indexOf(target)+1]-target)>(target-targetArr[targetArr.indexOf(target)-1])){
+          return targetArr[targetArr.indexOf(target)-1]
+        }else {
+          return targetArr[targetArr.indexOf(target)+1]
+        }
       }
-      return target
     };
-    console.log(smallestK([1,3,5,7,2,4,6,8],4))
+    //[0,2,1,-3], 1
+    console.log(threeSumClosest([0,2,1,-3], 1))
 
   }
 }
