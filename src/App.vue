@@ -1268,10 +1268,84 @@ export default {
 //
 // 输入：nums = [2,0,2,1,1,0]
 // 输出：[0,0,1,1,2,2]
-    var sortColors = function(nums) {
-      return nums.sort((a,b)=>a-b)
-    };
-    console.log(sortColors([2,0,1]))
+//     var sortColors = function(nums) {
+//       return nums.sort((a,b)=>a-b)
+//     };
+//     console.log(sortColors([2,0,1]))
+
+// 35.给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+//
+// 请必须使用时间复杂度为 O(log n) 的算法。
+// 示例 1:
+//
+// 输入: nums = [1,3,5,6], target = 5
+// 输出: 2
+//     nums = [1,3,5,6], target = 2  输出1
+//     [1,3,5,6] 7 , 4
+//     var searchInsert = function(nums, target) {
+//       let i = 0
+//       if (target>nums[nums.length-1]) return nums.length
+//       if (target<nums[0]) return 0
+//       while (i<nums.length){
+//         if (nums[i]===target){
+//           return i
+//         }
+//         if (target>nums[i]&&target<=nums[i+1]){
+//           return i+1
+//         }
+//         i++
+//       }
+//     };
+//     console.log(searchInsert([1,3,5,6],7))
+
+// 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
+//     示例 1:
+//
+//     输入: nums = [-1,0,3,5,9,12], target = 9
+//     输出: 4
+//     解释: 9 出现在 nums 中并且下标为 4
+//     var search = function(nums, target) {
+//       let i = 0;
+//       let T = -1
+//       while (i < nums.length){
+//         if (nums[i]===target){
+//           T = i
+//         }
+//         i++
+//       }
+//       return T
+//     };
+//     console.log(search([-1,0,3,5,9,12],9))
+
+//二分法
+//     var search = function(nums, target) {
+//       let mid = Math.floor(nums.length/2)
+//       let T = -1
+//       let i = 0
+//       if (nums[mid]===target){
+//         T = mid
+//       }else if(nums[mid]>target){
+//         //只可能在左边
+//         while (i<mid){
+//           if (nums[i]===target){
+//             T = i
+//           }
+//           i++
+//         }
+//       }else if(nums[mid]<target){
+//         //只可能在右边
+//         i = mid
+//         while (i<nums.length){
+//           if (nums[i]===target){
+//             T = i
+//           }
+//           i++
+//         }
+//       }
+//       return T
+//     };
+//     console.log(search([-1,0,3,5,9,12],9))
+
 
   }
 }
