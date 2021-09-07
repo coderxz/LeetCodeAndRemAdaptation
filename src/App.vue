@@ -1390,6 +1390,38 @@ export default {
 //
 // 返回可以通过分割得到的平衡字符串的 最大数量 。
 
+// 示例 1：
+//
+// 输入：s = "RLRRLLRLRL"
+// 输出：4
+// 解释：s 可以分割为 "RL"、"RRLL"、"RL"、"RL" ，每个子字符串中都包含相同数量的 'L' 和 'R' 。
+
+// 示例 4：
+//
+// 输入：s = "RLRRRLLRLL"
+// 输出：2
+// 解释：s 可以分割为 "RL"、"RRRLLRLL" ，每个子字符串中都包含相同数量的 'L' 和 'R' 。
+
+    var balancedStringSplit = function(s) {
+      let i = 0;
+      let J = 0;
+      let F = 0;
+      let target = 0
+      while (i<s.length){
+        if (s[i]==='R'){
+          J += -1
+        }
+        if (s[i]==='L'){
+          F += 1
+        }
+        if (J+F===0){
+          target++
+        }
+        i++
+      }
+      return target
+    };
+    console.log(balancedStringSplit("RLRRLLRLRL"))
 
 
   }
