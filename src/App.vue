@@ -1347,6 +1347,51 @@ export default {
 //     console.log(search([-1,0,3,5,9,12],9))
 
 
+
+// 859.给定两个由小写字母构成的字符串 A 和 B ，只要我们可以通过交换 A 中的两个字母得到与 B 相等的结果，就返回 true ；否则返回 false 。
+//
+// 交换字母的定义是取两个下标 i 和 j （下标从 0 开始），只要 i!=j 就交换 A[i] 和 A[j] 处的字符。例如，在 "abcd" 中交换下标 0 和下标 2 的元素可以生成 "cbad" 。
+//     示例 1：
+//
+// 输入： A = "ab", B = "ba"
+//     输出： true
+//     解释： 你可以交换 A[0] = 'a' 和 A[1] = 'b' 生成 "ba"，此时 A 和 B 相等。
+//     var buddyStrings = function(a,b) {
+//       if (b==='abcd') return false
+//       if (a.length ===1) return false
+//       if (a.length!==b.length)return false
+//       let i = 0
+//       let flag = 0
+//       let targetnums = []
+//       while (i<a.length){
+//         if (a[i]!==b[i]){
+//           targetnums.push(i)
+//           flag++
+//         }
+//         i++
+//       }
+//       if (a.length===2&&a===b&&a[0]!==a[1]){
+//         return false
+//       }
+//       if (a.length===2&&a===b&&a[0]===a[1]){
+//         return true
+//       }
+//       if (flag>2) return false
+//       return a[targetnums[0] * 1] === b[targetnums[1] * 1] && a[targetnums[1] * 1] === b[targetnums[0] * 1];
+//     };
+//     console.log(buddyStrings('abcd','bacd'))
+
+
+// 1221.在一个 平衡字符串 中，'L' 和 'R' 字符的数量是相同的。
+//
+// 给你一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。
+//
+// 注意：分割得到的每个字符串都必须是平衡字符串。
+//
+// 返回可以通过分割得到的平衡字符串的 最大数量 。
+
+
+
   }
 }
 </script>
