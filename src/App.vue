@@ -1402,28 +1402,102 @@ export default {
 // 输出：2
 // 解释：s 可以分割为 "RL"、"RRRLLRLL" ，每个子字符串中都包含相同数量的 'L' 和 'R' 。
 
-    var balancedStringSplit = function(s) {
-      let i = 0;
-      let J = 0;
-      let F = 0;
-      let target = 0
-      while (i<s.length){
-        if (s[i]==='R'){
-          J += -1
+    // var balancedStringSplit = function(s) {
+    //   let i = 0;
+    //   let J = 0;
+    //   let F = 0;
+    //   let target = 0
+    //   while (i<s.length){
+    //     if (s[i]==='R'){
+    //       J += -1
+    //     }
+    //     if (s[i]==='L'){
+    //       F += 1
+    //     }
+    //     if (J+F===0){
+    //       target++
+    //     }
+    //     i++
+    //   }
+    //   return target
+    // };
+    // console.log(balancedStringSplit("RLRRLLRLRL"))
+
+// 133.给你无向 连通 图中一个节点的引用，请你返回该图的 深拷贝（克隆）。
+//
+// 图中的每个节点都包含它的值 val（int） 和其邻居的列表（list[Node]）。
+
+    // var cloneGraph = function(source) {
+    //   if (!(typeof source === 'object' && source !== null)) return source; //如果不是对象的话直接返回
+    //   let target = Array.isArray( source ) ? [] : {} //数组兼容
+    //   for ( let k in source ) {
+    //     if (source.hasOwnProperty(k)) {
+    //       if ( typeof source[ k ] === 'object' ) {
+    //         target[ k ] = cloneGraph( source[ k ] )
+    //       } else {
+    //         target[ k ] = source[ k ]
+    //       }
+    //     }
+    //   }
+    //   return target
+    // };
+    // console.log(cloneGraph([[2,4],[1,3],[2,4],[1,3,[555]]]))
+
+
+// 1232. 缀点成线   在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，其中 coordinates[i] = [x, y] 表示横坐标为 x、纵坐标为 y 的点。
+//
+// 请你来判断，这些点是否在该坐标系中属于同一条直线上，是则返回 true，否则请返回 false。
+
+// 输入：coordinates = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
+// 输出：true
+//
+// 输入：coordinates = [[1,1],[2,2],[3,4],[4,5],[5,6],[7,7]]
+// 输出：false
+
+    // var checkStraightLine = function(A) {
+    // let i = 0;
+    // let target  = true
+    // while (i<A.length){
+    //   if (i<A.length-1){
+    //     if (A[i][1]!==A[i+1][0]&&A[i+1][0]){
+    //       target = false
+    //     }
+    //   }
+    //   i++
+    // }
+    // return target
+    // };
+    //
+    // console.log(checkStraightLine([[1,1],[2,2],[3,4],[4,5],[5,6],[7,7]]))
+
+
+   // 628. 给你一个整型数组 nums ，在数组中找出由三个数组成的最大乘积，并输出这个乘积。
+  // 示例 1：
+  //
+  // 输入：nums = [1,2,3]
+  // 输出：6
+    var maximumProduct = function(nums) {
+      let target  = nums[0]*nums[1]*nums[2]
+      nums.sort((a,b)=>a-b)
+      if (nums.length===3) return nums[0]*nums[1]*nums[2]
+      for (let i = 0; i < nums.length; i++){
+        let L = i+1;
+        let R = nums.length-1;
+        while (L<R){
+          if (nums[i]*nums[L]*nums[R]>target){
+            target = nums[i]*nums[L]*nums[R]
+            L++
+          }else if (nums[i]*nums[L]*nums[R]<target){
+            L++
+          }else{
+            target = nums[i]*nums[L]*nums[R]
+            L++
+          }
         }
-        if (s[i]==='L'){
-          F += 1
-        }
-        if (J+F===0){
-          target++
-        }
-        i++
       }
       return target
     };
-    console.log(balancedStringSplit("RLRRLLRLRL"))
-
-
+    console.log(maximumProduct([1,2,3,-3,-7]))
   }
 }
 </script>
