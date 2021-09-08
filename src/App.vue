@@ -1476,28 +1476,82 @@ export default {
   //
   // 输入：nums = [1,2,3]
   // 输出：6
-    var maximumProduct = function(nums) {
-      let target  = nums[0]*nums[1]*nums[2]
-      nums.sort((a,b)=>a-b)
-      if (nums.length===3) return nums[0]*nums[1]*nums[2]
-      for (let i = 0; i < nums.length; i++){
-        let L = i+1;
-        let R = nums.length-1;
-        while (L<R){
-          if (nums[i]*nums[L]*nums[R]>target){
-            target = nums[i]*nums[L]*nums[R]
-            L++
-          }else if (nums[i]*nums[L]*nums[R]<target){
-            L++
-          }else{
-            target = nums[i]*nums[L]*nums[R]
-            L++
-          }
-        }
-      }
-      return target
+  //   var maximumProduct = function(nums) {
+  //     let target  = nums[0]*nums[1]*nums[2]
+  //     nums.sort((a,b)=>a-b)
+  //     if (nums.length===3) return nums[0]*nums[1]*nums[2]
+  //     for (let i = 0; i < nums.length; i++){
+  //       let L = i+1;
+  //       let R = nums.length-1;
+  //       while (L<R){
+  //         if (nums[i]*nums[L]*nums[R]>target){
+  //           target = nums[i]*nums[L]*nums[R]
+  //           L++
+  //         }else if (nums[i]*nums[L]*nums[R]<target){
+  //           L++
+  //         }else{
+  //           target = nums[i]*nums[L]*nums[R]
+  //           L++
+  //         }
+  //       }
+  //     }
+  //     return target
+  //   };
+  //   console.log(maximumProduct([1,2,3,-3,-7]))
+
+// 664.有台奇怪的打印机有以下两个特殊要求：
+//
+// 打印机每次只能打印由 同一个字符 组成的序列。
+// 每次可以在任意起始和结束位置打印新字符，并且会覆盖掉原来已有的字符。
+// 给你一个字符串 s ，你的任务是计算这个打印机打印它需要的最少打印次数。
+
+// 示例 1：
+//
+// 输入：s = "aaabbb"
+// 输出：2
+// 解释：首先打印 "aaa" 然后打印 "bbb"。
+//
+// 示例 2：
+//
+// 输入：s = "aba"
+// 输出：2
+// 解释：首先打印 "aaa" 然后在第二个位置打印 "b" 覆盖掉原来的字符 'a'。
+
+    var strangePrinter = function(s) {
+      s = s.split('')
+      // let s1 = []
+      // let bt = 0
+      // let i = 0;
+      // let tem = [s[0]]
+      // let target = 0
+      // while (s1.length!==s.length){
+      //   s1.push(s[0])
+      // }
+      // target++
+      // function th(T,index){
+      //   let j = 0
+      //   while (index<s1.length){
+      //     if (tem.indexOf(T)!==-1){
+      //       s1[index] = T
+      //     }
+      //     index++
+      //   }
+      //   target++
+      //   tem.push(T)
+      // }
+      // while (i<s.length){
+      //   if (s[i]!==s1[i]){
+      //     th(s[i],i)
+      //   }
+      //   i++
+      // }
+      // console.log(s,s1)
+      // return target
+      let yyy = [...new Set([...s])]
+      return yyy.length
     };
-    console.log(maximumProduct([1,2,3,-3,-7]))
+    console.log(strangePrinter('aaabbb'))
+
   }
 }
 </script>
