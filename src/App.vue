@@ -1516,9 +1516,9 @@ export default {
 // 输入：s = "aba"
 // 输出：2
 // 解释：首先打印 "aaa" 然后在第二个位置打印 "b" 覆盖掉原来的字符 'a'。
-
-    var strangePrinter = function(s) {
-      s = s.split('')
+//
+//     var strangePrinter = function(s) {
+//       s = s.split('')
       // let s1 = []
       // let bt = 0
       // let i = 0;
@@ -1547,10 +1547,48 @@ export default {
       // }
       // console.log(s,s1)
       // return target
-      let yyy = [...new Set([...s])]
-      return yyy.length
+    //   let yyy = [...new Set([...s])]
+    //   return yyy.length
+    // };
+    // console.log(strangePrinter('aaabbb'))
+
+// 202 编写一个算法来判断一个数 n 是不是快乐数。
+//
+// 「快乐数」定义为：
+//
+// 对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。
+// 然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。
+// 如果 可以变为  1，那么这个数就是快乐数。
+// 如果 n 是快乐数就返回 true ；不是，则返回 false 。
+// 示例 1：
+//
+// 输入：19
+// 输出：true
+// 解释：
+// 12 + 92 = 82(1的平方加9的平方)
+// 82 + 22 = 68
+// 62 + 82 = 100
+// 12 + 02 + 02 = 1
+    var isHappy = function(n) {
+      let A = []
+      let F = n
+      if (n.toString().length===1){
+        F = n * n
+      }
+      n = n.toString()
+      while (Number(F)!==1){
+          if (F===7) return true
+          if (F.toString().length===1&&F!==1)return false
+          A = F.toString().split('')
+          F = 0
+          for (let J = 0; J < A.length; J++){
+            F += A[J]*A[J]
+          }
+      }
+      if (Number(n)===1) return true
+      if (Number(F)===1) return true
     };
-    console.log(strangePrinter('aaabbb'))
+    console.log(isHappy(1111111));
 
   }
 }
