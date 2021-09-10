@@ -1569,26 +1569,110 @@ export default {
 // 82 + 22 = 68
 // 62 + 82 = 100
 // 12 + 02 + 02 = 1
-    var isHappy = function(n) {
-      let A = []
-      let F = n
-      if (n.toString().length===1){
-        F = n * n
+//     var isHappy = function(n) {
+//       let A = []
+//       let F = n
+//       if (n.toString().length===1){
+//         F = n * n
+//       }
+//       n = n.toString()
+//       while (Number(F)!==1){
+//           if (F===7) return true
+//           if (F.toString().length===1&&F!==1)return false
+//           A = F.toString().split('')
+//           F = 0
+//           for (let J = 0; J < A.length; J++){
+//             F += A[J]*A[J]
+//           }
+//       }
+//       if (Number(n)===1) return true
+//       if (Number(F)===1) return true
+//     };
+//     console.log(isHappy(1111111));
+
+// 795. 区间子数组个数
+// 给定一个元素都是正整数的数组A ，正整数 L 以及 R (L <= R)。
+//
+// 求连续、非空且其中最大元素满足大于等于L 小于等于R的子数组个数。
+//     例如 :
+//         输入:
+//             A = [2, 1, 4, 3]
+//     L = 2
+//     R = 3
+//     输出: 3
+//     解释: 满足条件的子数组: [2], [2, 1], [3].
+
+    // var numSubarrayBoundedMax = function(nums, L, R) {
+    //  return  nums.reduce((a,b,c,d)=>{
+    //     return a.concat(Array.isArray(b)?numSubarrayBoundedMax(b):b)
+    //   },[])
+    //
+    // };
+    // console.log(numSubarrayBoundedMax([[0, 1], [2, 3], [4,[5,6,7]]]));
+
+// 448.给你一个含 n 个整数的数组 nums ，其中 nums[i] 在区间 [1, n] 内。请你找出所有在 [1, n] 范围内但没有出现在 nums 中的数字，并以数组的形式返回结果。
+// 示例 1：
+//
+// 输入：nums = [4,3,2,7,8,2,3,1]
+// 输出：[5,6]
+
+// 示例 2：
+//
+// 输入：nums = [1,1]
+// 输出：[2]
+
+    // var findDisappearedNumbers = function(nums) {
+    //   let i = 0;
+    //   let l = nums.length
+    //   let A = []
+    //   nums.sort((a,b)=>a-b)
+    //   debugger
+    //   while (i<l){
+    //     if ((i+1)!==nums[i]){
+    //       A.push((i+1))
+    //     }
+    //     i++
+    //   }
+    //   nums = []
+    //   nums.push(...A)
+    //   return nums
+    // };
+    // console.log(findDisappearedNumbers([4,3,2,7,8,2,3,1]));
+
+// 1894.一个班级里有 n 个学生，编号为 0 到 n - 1 。每个学生会依次回答问题，编号为 0 的学生先回答，然后是编号为 1 的学生，以此类推，直到编号为 n - 1 的学生，然后老师会重复这个过程，重新从编号为 0 的学生开始回答问题。
+//
+// 给你一个长度为 n 且下标从 0 开始的整数数组 chalk 和一个整数 k 。一开始粉笔盒里总共有 k 支粉笔。当编号为 i 的学生回答问题时，他会消耗 chalk[i] 支粉笔。如果剩余粉笔数量 严格小于 chalk[i] ，那么学生 i 需要 补充 粉笔。
+//
+// 请你返回需要 补充 粉笔的学生 编号
+
+// 示例 1：
+//
+// 输入：chalk = [5,1,5], k = 22
+// 输出：0
+// 解释：学生消耗粉笔情况如下：
+// - 编号为 0 的学生使用 5 支粉笔，然后 k = 17 。
+// - 编号为 1 的学生使用 1 支粉笔，然后 k = 16 。
+// - 编号为 2 的学生使用 5 支粉笔，然后 k = 11 。
+// - 编号为 0 的学生使用 5 支粉笔，然后 k = 6 。
+// - 编号为 1 的学生使用 1 支粉笔，然后 k = 5 。
+// - 编号为 2 的学生使用 5 支粉笔，然后 k = 0 。
+// 编号为 0 的学生没有足够的粉笔，所以他需要补充粉笔。
+
+    var chalkReplacer = function(a,b) {
+      let i = 0;
+      while(i<a.length){
+        b-=a[i]
+        if (b<0){
+          return i
+        }
+        i++
+        if (i===a.length){
+          i = 0
+        }
       }
-      n = n.toString()
-      while (Number(F)!==1){
-          if (F===7) return true
-          if (F.toString().length===1&&F!==1)return false
-          A = F.toString().split('')
-          F = 0
-          for (let J = 0; J < A.length; J++){
-            F += A[J]*A[J]
-          }
-      }
-      if (Number(n)===1) return true
-      if (Number(F)===1) return true
     };
-    console.log(isHappy(1111111));
+    console.log(chalkReplacer([3,4,1,2],25));
+
 
   }
 }
