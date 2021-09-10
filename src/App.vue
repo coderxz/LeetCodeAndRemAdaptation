@@ -1742,17 +1742,59 @@ export default {
 // 3. (1, 2), (3, 4) -> min(1, 2) + min(3, 4) = 1 + 3 = 4
 // 所以最大总和为 4
 
-    var arrayPairSum = function(nums) {
-      nums.sort((a,b)=>a-b)
-      let i = 0;
-      let res = 0
-      while (i<nums.length){
-        res+=nums[i]
-        i+=2
+    // var arrayPairSum = function(nums) {
+    //   nums.sort((a,b)=>a-b)
+    //   let i = 0;
+    //   let res = 0
+    //   while (i<nums.length){
+    //     res+=nums[i]
+    //     i+=2
+    //   }
+    //   return res
+    // };
+    // console.log(arrayPairSum([1,4,3,2]));
+
+// 剑指 Offer II 033. 变位词组
+
+// 给定一个字符串数组 strs ，将 变位词 组合在一起。 可以按任意顺序返回结果列表。
+//
+// 注意：若两个字符串中每个字符出现的次数都相同，则称它们互为变位词。
+//     示例 1:
+//
+//     输入: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+//     输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+    var groupAnagrams = function(strs) {
+      let tm = [...strs]
+      let i = 0
+      let j = 0
+      let k = 0
+      let Tobj = {}
+      while (i<tm.length){
+        tm[i] = tm[i].split('').sort().join('')
+        i++
       }
-      return res
+      while (j<tm.length){
+        if (Tobj[tm[j]]){
+          Tobj[tm[j]].push(j)
+        }else{
+          Tobj[tm[j]] = [j]
+        }
+        j++
+      }
+      let TA = Object.values(Tobj)
+      let tagetA = []
+      while (k<TA.length){
+        let P = []
+        TA[k].forEach(item=>{
+          P.push(strs[item])
+        })
+        tagetA.push(P)
+        k++
+      }
+      return tagetA
     };
-    console.log(arrayPairSum([1,4,3,2]));
+    console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
 
 
   }
