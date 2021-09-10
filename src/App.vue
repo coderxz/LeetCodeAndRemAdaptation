@@ -1658,20 +1658,40 @@ export default {
 // - 编号为 2 的学生使用 5 支粉笔，然后 k = 0 。
 // 编号为 0 的学生没有足够的粉笔，所以他需要补充粉笔。
 
-    var chalkReplacer = function(a,b) {
-      let i = 0;
-      while(i<a.length){
-        b-=a[i]
-        if (b<0){
-          return i
-        }
-        i++
-        if (i===a.length){
-          i = 0
-        }
-      }
+    // var chalkReplacer = function(a,b) {
+    //   let i = 0;
+    //   while(i<a.length){
+    //     b-=a[i]
+    //     if (b<0){
+    //       return i
+    //     }
+    //     i++
+    //     if (i===a.length){
+    //       i = 0
+    //     }
+    //   }
+    // };
+    // console.log(chalkReplacer([3,4,1,2],25));
+
+// 242. 有效的字母异位词
+// 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
+//
+// 注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
+//     示例 1:
+//
+//     输入: s = "anagram", t = "nagaram"
+//     输出: true
+    var isAnagram = function(s, t) {
+      // console.log(Array.prototype.join.call(s,'*'))
+      s=s.split('')
+      t=t.split('')
+      s = s.sort()
+      t = t.sort()
+      s = s.join('')
+      t = t.join('')
+      return s === t
     };
-    console.log(chalkReplacer([3,4,1,2],25));
+    console.log(isAnagram('anagram','nagaram'));
 
 
   }
