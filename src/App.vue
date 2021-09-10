@@ -1704,29 +1704,57 @@ export default {
 // 输入：arr = [1,2,2,1,1,3]
 // 输出：true
 // 解释：在该数组中，1 出现了 3 次，2 出现了 2 次，3 只出现了 1 次。没有两个数的出现次数相同。
-    var uniqueOccurrences = function(arr) {
+//     var uniqueOccurrences = function(arr) {
+//       let i = 0;
+//       let j = 0;
+//       let obj = {}
+//       while(i<arr.length){
+//         if (obj[arr[i]]){
+//           obj[arr[i]]++
+//         }else {
+//           obj[arr[i]] = 1
+//         }
+//         i++
+//       }
+//       let tarA = Object.values(obj)
+//       tarA.sort((a,b)=>a-b)
+//       while (j<tarA.length){
+//         if (tarA[j]===tarA[j+1]){
+//           return false
+//         }
+//         j++
+//       }
+//       return true
+//     };
+//     console.log(uniqueOccurrences([1,2,2,1,1,2,3]));
+
+// 561. 数组拆分 I
+//   给定长度为 2n 的整数数组 nums ，你的任务是将这些数分成 n 对, 例如 (a1, b1), (a2, b2), ..., (an, bn) ，使得从 1 到 n 的 min(ai, bi) 总和最大。
+//
+// 返回该 最大总和 。
+// 示例 1：
+//
+// 输入：nums = [1,4,3,2]
+// 输出：4
+// 解释：所有可能的分法（忽略元素顺序）为：
+// 1. (1, 4), (2, 3) -> min(1, 4) + min(2, 3) = 1 + 2 = 3
+// 2. (1, 3), (2, 4) -> min(1, 3) + min(2, 4) = 1 + 2 = 3
+// 3. (1, 2), (3, 4) -> min(1, 2) + min(3, 4) = 1 + 3 = 4
+// 所以最大总和为 4
+
+    var arrayPairSum = function(nums) {
+      nums.sort((a,b)=>a-b)
       let i = 0;
-      let j = 0;
-      let obj = {}
-      while(i<arr.length){
-        if (obj[arr[i]]){
-          obj[arr[i]]++
-        }else {
-          obj[arr[i]] = 1
-        }
-        i++
+      let res = 0
+      while (i<nums.length){
+        res+=nums[i]
+        i+=2
       }
-      let tarA = Object.values(obj)
-      tarA.sort((a,b)=>a-b)
-      while (j<tarA.length){
-        if (tarA[j]===tarA[j+1]){
-          return false
-        }
-        j++
-      }
-      return true
+      return res
     };
-    console.log(uniqueOccurrences([1,2,2,1,1,2,3]));
+    console.log(arrayPairSum([1,4,3,2]));
+
+
   }
 }
 </script>
