@@ -1829,18 +1829,87 @@ export default {
 //
 // 输入：s = "We are happy."
 // 输出："We%20are%20happy."
-    var replaceSpace = function(s) {
-      let i = 0
-      let TA = s.split('')
-      while(i<TA.length){
-        if (TA[i]===' '){
-          TA[i] = '%20'
-        }
-        i++
-      }
-      return TA.join('')
-    };
-    console.log(replaceSpace('We are happy.'));
+//     var replaceSpace = function(s) {
+//       let i = 0
+//       let TA = s.split('')
+//       while(i<TA.length){
+//         if (TA[i]===' '){
+//           TA[i] = '%20'
+//         }
+//         i++
+//       }
+//       return TA.join('')
+//     };
+//     console.log(replaceSpace('We are happy.'));
+
+// 排序
+//       let FN = function () {
+//         let user = [
+//           {
+//             createTime:1631757129000,
+//             mobile:'13013566253',
+//             nickName:'尹作琦',
+//             userId:'PUser0210522908287300000001',
+//             userLogo:{
+//               imageId: "imgUe3207123461086900000001",
+//               large: "",
+//               middle: "",
+//               name: null,
+//               original: "http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqqBU4DTxak72laArMrzjy7tibffbeQEvayPibu1UNtlI2vBprwL4b3xUPYz5XjSDaJUUoOgBjkAASA/132",
+//               small: "",
+//               status: null,
+//             }
+//           },
+//           {
+//             createTime:1631757129001,
+//             mobile:'17620307310',
+//             nickName:'尹召',
+//             userId:'PUser0210522908287300000002',
+//             userLogo:{
+//               imageId: "imgUe3207123461086900000002",
+//               large: "",
+//               middle: "",
+//               name: null,
+//               original: "http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqqBU4DTxak72laArMrzjy7tibffbeQEvayPibu1UNtlI2vBprwL4b3xUPYz5XjSDaJUUoOgBjkAASA/132",
+//               small: "",
+//               status: null,
+//             }
+//           },
+//           {
+//             createTime:1631757129002,
+//             mobile:'13013566253',
+//             nickName:'吴明琴',
+//             userId:'PUser0210522908287300000003',
+//             userLogo:{
+//               imageId: "imgUe3207123461086900000001",
+//               large: "",
+//               middle: "",
+//               name: null,
+//               original: "http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqqBU4DTxak72laArMrzjy7tibffbeQEvayPibu1UNtlI2vBprwL4b3xUPYz5XjSDaJUUoOgBjkAASA/132",
+//               small: "",
+//               status: null,
+//             }
+//           },
+//           {
+//             createTime:1631757129003,
+//             mobile:'13013566253',
+//             nickName:'尹文杰',
+//             userId:'PUser0210522908287300000004',
+//             userLogo:{
+//               imageId: "imgUe3207123461086900000001",
+//               large: "",
+//               middle: "",
+//               name: null,
+//               original: "http://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqqBU4DTxak72laArMrzjy7tibffbeQEvayPibu1UNtlI2vBprwL4b3xUPYz5XjSDaJUUoOgBjkAASA/132",
+//               small: "",
+//               status: null,
+//             }
+//           }
+//         ]
+//         user.sort((a,b)=>b.createTime-a.createTime)
+//         console.log(user)
+//       }
+//     FN()
   }
 }
 </script>
